@@ -7,7 +7,7 @@ import {
   TextField,
 } from '@mui/material';
 import axios from 'axios';
-import CustomButton from './CustomButton';
+import CustomButton from '../components/CustomButton';
 
 import GoogleButton from 'react-google-button';
 

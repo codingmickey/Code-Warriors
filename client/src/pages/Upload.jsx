@@ -1,6 +1,6 @@
 import { Grid, Snackbar, TextField, Alert } from '@mui/material';
 import React, { useState } from 'react';
-import CustomButton from '../CustomButton';
+import CustomButton from '../components/CustomButton';
 import axios from 'axios';
 
 function Upload() {
@@ -285,28 +285,24 @@ function Upload() {
         <Snackbar
           open={values.singleOpen || values.multipleOpen}
           autoHideDuration={4000}
-          onClose={handleClose}
-        >
+          onClose={handleClose}>
           <Alert
             onClose={handleClose}
             severity="success"
             sx={{ width: '100%', color: 'black' }}
-            variant="filled"
-          >
+            variant="filled">
             Song Uploaded successfully!
           </Alert>
         </Snackbar>
         <Snackbar
           open={values.multipleOpen}
           autoHideDuration={4000}
-          onClose={handleClose}
-        >
+          onClose={handleClose}>
           <Alert
             onClose={handleClose}
             severity="success"
             sx={{ width: '100%', color: 'black' }}
-            variant="filled"
-          >
+            variant="filled">
             Album Uploaded successfully!
           </Alert>
         </Snackbar>

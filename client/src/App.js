@@ -4,15 +4,17 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import Login from './Login';
-import Register from './Register';
-import Home from './Home';
-import Dashboard from './Dashboard/Dashboard';
-import Upload from './Dashboard/Upload';
-import NotFound from './NotFound';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
+import Upload from './pages/Upload';
+import Sidebar from './pages/Sidebar';
+import NotFound from './pages/NotFound';
 
 const theme = createTheme({
   palette: {
+    type: 'dark',
     primary: {
       main: '#1ed760',
     },
@@ -20,12 +22,13 @@ const theme = createTheme({
       main: '#000',
     },
     info: {
-      main: '#fff',
+      main: '#ffffff',
     },
     success: {
       main: '#21e065',
     },
   },
+
   typography: {
     fontFamily: ['Montserrat, sans-serif'].join(','),
   },
@@ -51,6 +54,10 @@ function App() {
           <li>
             <Link to="/upload">Upload</Link>
           </li>
+
+          <li>
+            <Link to="/d1">Sidebar</Link>
+          </li>
         </ul>
       </nav>
       <ThemeProvider theme={theme}>
@@ -62,6 +69,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/upload" component={Upload} />
+          <Route path="/d1" component={Sidebar} />
           <Route path="*" component={NotFound} />
         </Switch>
       </ThemeProvider>
