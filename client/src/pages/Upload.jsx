@@ -264,9 +264,11 @@ function Upload() {
               label="Artist"
               name="artist"
               value={values.multipleArtist}
-              inputProps={{
-                style: { color: 'white' },
-              }}
+              inputProps={
+                {
+                  // style: { color: 'white' },
+                }
+              }
               required
               onChange={handleChange('multipleArtist')}
             />
