@@ -10,7 +10,7 @@ import {
   RadioGroup,
   Radio,
 } from '@mui/material';
-import CustomButton from './CustomButton';
+import CustomButton from '../components/CustomButton';
 
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -74,8 +74,7 @@ function Register() {
           sx={{ m: 1, width: '20rem' }}
           variant="outlined"
           action="/login"
-          method="post"
-        >
+          method="post">
           {/* Email */}
           <p className="pre-label">What's your email?</p>
           <TextField
@@ -106,8 +105,7 @@ function Register() {
                     aria-label="toggle password visibility"
                     onClick={handleClickShowPassword}
                     onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
+                    edge="end">
                     {values.showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>

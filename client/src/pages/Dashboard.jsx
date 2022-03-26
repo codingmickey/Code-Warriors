@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CustomButton from '../CustomButton';
+import CustomButton from '../components/CustomButton';
 
 function Dashboard() {
   const [singleSongs, setSingleSongs] = useState();
