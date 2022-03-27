@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import OfflineBoltRoundedIcon from '@mui/icons-material/OfflineBoltRounded';
+import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
@@ -15,18 +15,16 @@ function Navbar() {
         className="appbar-responsive"
         color="secondary"
         position="static"
-        sx={{ px: '10%' }}
-      >
+        sx={{ px: '10%' }}>
         <Toolbar className="toolbar-responsive">
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
-            className="iconButton-navbar"
-          >
+            className="iconButton-navbar">
             {/* <Link to="/"> */}
-            <OfflineBoltRoundedIcon
+            <AudiotrackIcon
               className="roundedbutton-navbar"
               sx={{ fontSize: '3.5rem', paddingRight: 0 }}
             />
@@ -39,9 +37,8 @@ function Navbar() {
               fontWeight: 600,
               fontSize: '1.7rem',
               letterSpacing: '-1.2px',
-            }}
-          >
-            Electrify
+            }}>
+            Audious
           </Typography>
           <Link to="/register">
             <Button
@@ -54,8 +51,7 @@ function Navbar() {
                 textTransform: 'capitalize',
                 fontWeight: 600,
               }}
-              color="inherit"
-            >
+              color="inherit">
               Sign up
             </Button>
           </Link>
@@ -69,8 +65,7 @@ function Navbar() {
                 textTransform: 'capitalize',
                 fontWeight: 600,
               }}
-              color="inherit"
-            >
+              color="inherit">
               Log in
             </Button>
           </Link>

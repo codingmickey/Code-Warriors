@@ -23,14 +23,14 @@ router
   })
   .post(auth.login);
 
-// auth logout
-router.get('/logout', (req, res) => {
-  // handle with passport
-});
+// // auth logout
+// router.get('/logout', (req, res) => {
+//   // handle with passport
+// });
 
-// OAUTH Routes for GOOGLE, login with google
-router.get('/auth/google', oauth.login);
-// callback route for google to redirect
-router.get('/auth/google/redirect', oauth.callback, oauth.jwtToken);
+// // OAUTH Routes for GOOGLE, login with google
+// router.get('/auth/google', oauth.login);
+// // callback route for google to redirect
+// router.get('/auth/google/redirect', oauth.callback, oauth.jwtToken);
 
 module.exports = router;

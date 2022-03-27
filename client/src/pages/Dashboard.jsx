@@ -1,114 +1,191 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import CustomButton from '../components/CustomButton';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import MuiDrawer from '@mui/material/Drawer';
+import Box from '@mui/material/Box';
+import MuiAppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Link from '@mui/material/Link';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import { mainListItems, secondaryListItems } from '../components/SidebarItems';
+import '../App.css';
 
-function Dashboard() {
-  const [singleSongs, setSingleSongs] = useState();
-  const [showSingle, setShowSingle] = useState(true);
-
-  const [albums, setAlbums] = useState();
-  const [showAlbums, setShowAlbums] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      let reqOptionsSingle = {
-        url: '/music/singleFile',
-        method: 'GET',
-      };
-      let reqOptionsMultiple = {
-        url: '/music/multipleFiles',
-        method: 'GET',
-      };
-      let reqOptions = {
-        url: '/verify',
-        method: 'GET',
-      };
-      axios.request(reqOptions).then(function (response) {
-        console.log(response.data.msg);
-        if (response.data.msg === 'Access Granted') {
-        }
-      });
-      try {
-        const responseSingle = await axios.request(reqOptionsSingle);
-        setSingleSongs(responseSingle.data);
-
-        const responseMultiple = await axios.request(reqOptionsMultiple);
-        setAlbums(responseMultiple.data);
-        console.log(responseMultiple.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  const handleClick = (type) => {
-    if (type === 'single') {
-      if (!showSingle) {
-        setShowSingle(true);
-        setShowAlbums(false);
-      }
-    }
-    if (type === 'album') {
-      if (!showAlbums) {
-        setShowAlbums(true);
-        setShowSingle(false);
-      }
-    }
-  };
-
+function Copyright(props) {
   return (
-    <div>
-      <CustomButton
-        // Single song upload button
-        name="Single"
-        col="black"
-        buttonColor="green-button"
-        thing="single"
-        onClick={handleClick}
-      />
-      <CustomButton
-        // Single song upload button
-        name="Album"
-        col="black"
-        buttonColor="green-button"
-        thing="album"
-        onClick={handleClick}
-      />
-      <h1> {showSingle ? 'Single songs' : 'Albums'} </h1>
-      {singleSongs &&
-        showSingle &&
-        singleSongs.map((song, index) => (
-          <div key={index}>
-            <h3>Song no. {index + 1}</h3>
-            <ul>
-              <li>Title: {song.songTitle}</li>
-              <li>Artist: {song.artist}</li>
-              <li>File name: {song.fileName}</li>
-            </ul>
-          </div>
-        ))}
-      {albums &&
-        showAlbums &&
-        albums.map((album, index) => (
-          <div key={index}>
-            <h2>Album no. {index + 1}</h2>
-
-            <h4>Album Title: {album.albumTitle}</h4>
-            <h4>Album Artist: {album.artist}</h4>
-
-            {album.songs.map((song, index) => (
-              <div key={index}>
-                <ul>
-                  <p>Song no. {index + 1}</p>
-                  <li>File name: {song.fileName}</li>
-                </ul>
-              </div>
-            ))}
-          </div>
-        ))}
-    </div>
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="http://localhost:3000">
+        Musefi
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
   );
 }
 
-export default Dashboard;
+const drawerWidth = 240;
+
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
+  zIndex: theme.zIndex.drawer + 1,
+  transition: theme.transitions.create(['width', 'margin'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
+
+const Drawer = styled(MuiDrawer, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
+  '& .MuiDrawer-paper': {
+    position: 'relative',
+    whiteSpace: 'nowrap',
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    boxSizing: 'border-box',
+    ...(!open && {
+      overflowX: 'hidden',
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+      width: theme.spacing(7),
+      [theme.breakpoints.up('sm')]: {
+        width: theme.spacing(9),
+      },
+    }),
+  },
+}));
+
+function DashboardContent() {
+  const [open, setOpen] = React.useState(true);
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
+
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar position="absolute" open={open}>
+        <Toolbar
+          sx={{
+            pr: '24px', // keep right padding when drawer closed
+          }}>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            onClick={toggleDrawer}
+            sx={{
+              marginRight: '36px',
+              ...(open && { display: 'none' }),
+            }}>
+            <MenuIcon />
+          </IconButton>
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            sx={{ flexGrow: 1 }}>
+            Dashboard
+          </Typography>
+          <IconButton color="inherit">
+            <Badge badgeContent={4} color="secondary">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Drawer variant="permanent" open={open}>
+        <Toolbar
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            px: [1],
+          }}>
+          <IconButton onClick={toggleDrawer}>
+            <ChevronLeftIcon />
+          </IconButton>
+        </Toolbar>
+        <Divider />
+        <List component="nav">
+          {mainListItems}
+          <Divider sx={{ my: 1 }} />
+          {secondaryListItems}
+        </List>
+      </Drawer>
+      <Box
+        component="main"
+        sx={{
+          backgroundColor: (theme) =>
+            theme.palette.mode === 'light'
+              ? theme.palette.grey[100]
+              : theme.palette.grey[900],
+          flexGrow: 1,
+          height: '100vh',
+          overflow: 'auto',
+        }}>
+        <Toolbar />
+        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          <Grid container spacing={3}>
+            {/* Chart */}
+            <Grid item xs={12} md={8} lg={9}>
+              <Paper>HI</Paper>
+            </Grid>
+            {/* Recent Deposits */}
+            <Grid item xs={12} md={4} lg={3}>
+              <Paper
+                sx={{
+                  p: 2,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: 240,
+                }}>
+                NAI BHAI
+              </Paper>
+            </Grid>
+            {/* Recent Orders */}
+            <Grid item xs={12}>
+              <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                KYA KAR
+              </Paper>
+            </Grid>
+          </Grid>
+          <Copyright sx={{ pt: 4 }} />
+        </Container>
+      </Box>
+    </Box>
+  );
+}
+
+export default function Dashboard() {
+  return <DashboardContent />;
+}
