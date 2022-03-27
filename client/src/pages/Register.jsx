@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import OfflineBoltRoundedIcon from '@mui/icons-material/OfflineBoltRounded';
+import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 import { IMaskInput } from 'react-imask';
 import {
   FormControl,
@@ -62,10 +62,10 @@ function Register() {
     <div className="register">
       <h2 style={{ color: 'black', marginTop: 0, paddingTop: '0.83em' }}>
         <Link to="/">
-          <OfflineBoltRoundedIcon
+          <AudiotrackIcon
             sx={{ fontSize: '3.5rem', position: 'relative', top: '1rem' }}
           />
-          Electrify
+          Audious
         </Link>
       </h2>
       <h1>Sign up with your email address</h1>
@@ -147,7 +147,7 @@ function Register() {
           />
 
           {/* Fields */}
-          <p className="pre-label">What's your role?</p>
+          {/* <p className="pre-label">What's your role?</p>
           <RadioGroup row aria-label="role" name="role">
             <FormControlLabel
               value="user"
@@ -161,7 +161,7 @@ function Register() {
               control={<Radio required />}
               label="Artist"
             />
-          </RadioGroup>
+          </RadioGroup> */}
 
           {/* Sign Up buttons */}
           <div className="register-signup-button"></div>

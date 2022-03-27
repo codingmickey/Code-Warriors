@@ -30,7 +30,6 @@ app.use('/user', authRoute);
 app.use('/music', musicRoute);
 app.use(dashboard);
 
-
 app.get('/', (req, res) => {
   res.send('Running');
 });
@@ -40,7 +39,7 @@ const db = require('./config/db');
 db.connect();
 
 // Listening on the given PORT
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
   console.log(`Server started listening on ${PORT}`);
 });

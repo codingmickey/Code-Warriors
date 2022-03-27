@@ -12,21 +12,19 @@ function Footer() {
         href="https://twitter.com/codingmickey"
         target="_blank"
         rel="noreferrer"
-        className="footer-twitter"
-      >
+        className="footer-twitter">
         <TwitterIcon fontSize="large" />
       </a>
       <a
         href="https://github.com/codingmickey"
         target="_blank"
-        rel="noreferrer"
-      >
+        rel="noreferrer">
         <GitHubIcon fontSize="large" />
       </a>
       <p className="footer-text">
-        Made with <span className="footer-heart">❤</span> by Kartik Jolapara
+        Made with <span className="footer-heart">❤</span> by Code Warriors
       </p>
-      <p className="footer-text">&copy; {year} Electrify</p>
+      <p className="footer-text">&copy; {year} Audious</p>
     </footer>
   );
 }

@@ -8,7 +8,7 @@ passport.use(
       // options for google strategy
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: 'http://localhost:3000/dashboard',
+      callbackURL: 'http://localhost:3001/',
     },
     (accessToken, refreshToken, profile, done) => {
       // check if user already exists in our db

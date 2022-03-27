@@ -1,0 +1,33 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body,
+button,
+input {
+  font-family: 'Montserrat', sans-serif;
+}
+
+button {
+  background-color: #fff;
+  border-top: 0;
+  border-left: 0;
+  border-right: 2px #000000 solid;
+  border-bottom: 2px #000000 solid;
+  padding: 1px 4px;
+  cursor: pointer;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover,
+a:visited,
+a:active {
+  color: #000;
+  text-decoration: underline;
+}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import OfflineBoltRoundedIcon from '@mui/icons-material/OfflineBoltRounded';
+import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 import {
   FormControl,
   IconButton,
@@ -59,10 +59,10 @@ function Login() {
     <div className="login">
       <h2>
         <Link to="/">
-          <OfflineBoltRoundedIcon
+          <AudiotrackIcon
             sx={{ fontSize: '5rem', position: 'relative', top: '1.5rem' }}
           />
-          Electrify
+          Audious
         </Link>
       </h2>
       <hr />

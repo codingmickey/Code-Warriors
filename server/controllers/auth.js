@@ -5,6 +5,8 @@ const { createToken, maxTime } = require('../config/jwtConfig');
 
 // Register User
 exports.register = (req, res) => {
+  res.redirect('http://localhost:3001/');
+
   const { name, email, mobileNumber, role, password } = req.body;
 
   try {
@@ -23,7 +25,7 @@ exports.register = (req, res) => {
           httpOnly: true,
           maxAge: maxTime * 1000,
         });
-        res.status(201).json({ user: newUser._id });
+        // res.status(201).json({ user: newUser._id });
       }
     });
   } catch (err) {
@@ -33,6 +35,8 @@ exports.register = (req, res) => {
 
 // Login user
 exports.login = async (req, res) => {
+  res.redirect('http://localhost:3001/');
+
   const { email, password } = req.body;
 
   // Checking of the email id
@@ -49,5 +53,5 @@ exports.login = async (req, res) => {
     httpOnly: true,
     maxAge: maxTime * 1000,
   });
-  res.status(201).json({ msg: 'Login Successfull' });
+  // res.status(201).json({ msg: 'Login Successfull' });
 };

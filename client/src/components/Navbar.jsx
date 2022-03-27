@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import OfflineBoltRoundedIcon from '@mui/icons-material/OfflineBoltRounded';
+import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
@@ -24,7 +24,7 @@ function Navbar() {
             aria-label="menu"
             className="iconButton-navbar">
             {/* <Link to="/"> */}
-            <OfflineBoltRoundedIcon
+            <AudiotrackIcon
               className="roundedbutton-navbar"
               sx={{ fontSize: '3.5rem', paddingRight: 0 }}
             />
