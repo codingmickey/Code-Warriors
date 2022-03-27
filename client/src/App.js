@@ -38,7 +38,7 @@ const theme = createTheme({
 function App() {
   return (
     <Router>
-      <nav>
+      {/* <nav>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -63,7 +63,7 @@ function App() {
             <Link to="/new">fdsf</Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
       <ThemeProvider theme={theme}>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
