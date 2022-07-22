@@ -5,8 +5,8 @@ All the times, we know that the real owner of a particular song does not remain 
 ## 🚫 Challenges we ran into
 We ran into a couple of challenges during the hackathon. Creation of a new song is not possible as of now though we aim to do that in our future aspects.
 ## 🫂 Team members
-- Kartik Jolapara
 - Greha Shah
+- Kartik Jolapara
 ## Screenshots of our app
 ![image](https://user-images.githubusercontent.com/42518907/180362874-08d93738-36d2-4837-9fcd-6c27d61971bf.png)
 ![image](https://user-images.githubusercontent.com/42518907/180362906-7517f81a-6191-4842-b14f-7c5ee30cc9cc.png)
