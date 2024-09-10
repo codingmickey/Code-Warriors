@@ -7,6 +7,7 @@ We ran into a couple of challenges during the hackathon. Creation of a new song 
 ## 🫂 Team members
 - Greha Shah
 - Kartik Jolapara
+- Sharvari Joshi
 ## Screenshots of our app
 ![image](https://user-images.githubusercontent.com/42518907/180362874-08d93738-36d2-4837-9fcd-6c27d61971bf.png)
 ![image](https://user-images.githubusercontent.com/42518907/180362906-7517f81a-6191-4842-b14f-7c5ee30cc9cc.png)
